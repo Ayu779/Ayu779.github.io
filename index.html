@@ -49,6 +49,7 @@
   nav ul a:hover { color: var(--ink); }
 
   header.hero { padding: 88px 0 64px; }
+  .avatar { display: block; width: 112px; height: 112px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); margin: 0 0 24px; }
   .eyebrow { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--ink-3); text-transform: uppercase; margin: 0 0 16px; }
   h1 { font: 600 clamp(34px, 5vw, 52px)/1.1 var(--serif); letter-spacing: -.015em; margin: 0 0 20px; max-width: 18ch; }
   .lede { font-size: 19px; color: var(--ink-2); max-width: 60ch; margin: 0 0 28px; }
@@ -102,7 +103,8 @@
   @media (max-width: 820px) {
     nav ul { gap: 16px; font-size: 14px; }
     nav ul li.hide-sm { display: none; }
-    header.hero { padding: 56px 0 40px; }
+    header.hero { padding: 40px 0 40px; }
+    .avatar { width: 88px; height: 88px; margin-bottom: 20px; }
     .project { grid-template-columns: minmax(0, 1fr); gap: 24px; }
     .project .chart { order: -1; }
     .timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -130,6 +132,7 @@
 
 <header class="hero" id="top">
   <div class="wrap">
+    <img class="avatar" src="assets/ayush.png" alt="Ayush Saxena" width="112" height="112">
     <p class="eyebrow">Data analyst · Indore, India · open to remote</p>
     <h1>I find the number that changes the decision.</h1>
     <p class="lede">I'm a data analyst with 5+ years across analytics, AI and engineering. I work in SQL, Python and Power BI, and I'm doing an MBA in Business Analytics at BITS Pilani. Every project below starts with a business question and ends with what I'd tell the people who own it.</p>
