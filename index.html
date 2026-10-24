@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayush Saxena | Data Analyst</title>
+<meta name="description" content="Data analyst portfolio: SQL, Python and Power BI case studies that end in a business recommendation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --ink: #16150f;
+    --ink-2: #57564f;
+    --ink-3: #8a8980;
+    --line: #e7e5de;
+    --accent: #2a78d6;
+    --accent-ink: #1c5cab;
+    --accent-soft: #eaf2fc;
+    --hl: #eb6834;
+    --radius: 12px;
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --surface: #1d1d1b; --ink: #f0efea; --ink-2: #c3c2b7; --ink-3: #8f8e86;
+      --line: #2f2e2b; --accent: #5598e7; --accent-ink: #86b6ef; --accent-soft: #1a2a3f;
+    }
+    :root:not([data-theme="light"]) .chart img { background: #fcfcfb; }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141413; --surface: #1d1d1b; --ink: #f0efea; --ink-2: #c3c2b7; --ink-3: #8f8e86;
+    --line: #2f2e2b; --accent: #5598e7; --accent-ink: #86b6ef; --accent-soft: #1a2a3f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent-ink); text-underline-offset: 3px; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .name { font-weight: 600; color: var(--ink); text-decoration: none; }
+  nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
+  nav ul a { color: var(--ink-2); text-decoration: none; }
+  nav ul a:hover { color: var(--ink); }
+
+  header.hero { padding: 88px 0 64px; }
+  .eyebrow { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--ink-3); text-transform: uppercase; margin: 0 0 16px; }
+  h1 { font: 600 clamp(34px, 5vw, 52px)/1.1 var(--serif); letter-spacing: -.015em; margin: 0 0 20px; max-width: 18ch; }
+  .lede { font-size: 19px; color: var(--ink-2); max-width: 60ch; margin: 0 0 28px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-weight: 500; font-size: 15px; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn:hover { border-color: var(--ink-3); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 56px; }
+  .stat { border-top: 2px solid var(--ink); padding-top: 12px; }
+  .stat b { display: block; font: 600 28px/1.2 var(--serif); }
+  .stat span { font-size: 14px; color: var(--ink-2); }
+
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  h2 { font: 600 30px/1.2 var(--serif); margin: 0 0 8px; letter-spacing: -.01em; }
+  .section-intro { color: var(--ink-2); margin: 0 0 40px; max-width: 62ch; }
+
+  .project { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 40px; align-items: start; padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .project:last-child { border-bottom: 0; }
+  .project h3 { font: 600 24px/1.25 var(--serif); margin: 6px 0 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; padding: 0; list-style: none; }
+  .tags li { font-size: 12.5px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-ink); }
+  .q { font-size: 15px; color: var(--ink-2); margin: 0 0 16px; }
+  .q strong { color: var(--ink); font-weight: 500; }
+  .result { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--hl); border-radius: 0; padding: 14px 16px; margin: 0 0 18px; font-size: 15px; }
+  .findings { margin: 0 0 20px; padding-left: 18px; font-size: 15px; color: var(--ink-2); }
+  .findings li { margin-bottom: 6px; }
+  .findings b { color: var(--ink); font-weight: 500; }
+  .links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 15px; font-weight: 500; }
+  .chart { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; }
+  .chart img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  .chart figcaption { font-size: 13px; color: var(--ink-3); padding: 10px 4px 0; }
+  .status { display: inline-block; font-size: 12.5px; font-weight: 500; padding: 3px 10px; border-radius: 999px; border: 1px dashed var(--ink-3); color: var(--ink-2); }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .skill { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .skill h4 { margin: 0 0 8px; font-size: 15px; font-weight: 600; }
+  .skill p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .timeline li:last-child { border-bottom: 0; }
+  .when { font-size: 14px; color: var(--ink-3); padding-top: 2px; }
+  .timeline h4 { margin: 0 0 4px; font-size: 17px; font-weight: 600; }
+  .timeline .org { color: var(--ink-2); font-weight: 400; }
+  .timeline p { margin: 0; font-size: 15px; color: var(--ink-2); }
+
+  .contact { text-align: left; }
+  .contact .cta { margin-top: 24px; }
+  footer { padding: 32px 0 48px; font-size: 13px; color: var(--ink-3); border-top: 1px solid var(--line); }
+
+  @media (max-width: 820px) {
+    nav ul { gap: 16px; font-size: 14px; }
+    nav ul li.hide-sm { display: none; }
+    header.hero { padding: 56px 0 40px; }
+    .project { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .project .chart { order: -1; }
+    .timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    section { padding: 56px 0; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    nav ul li.hide-xs { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#top">Ayush Saxena</a>
+    <ul>
+      <li><a href="#work">Projects</a></li>
+      <li class="hide-sm"><a href="#skills">Skills</a></li>
+      <li class="hide-xs"><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Data analyst · Indore, India · open to remote</p>
+    <h1>I find the number that changes the decision.</h1>
+    <p class="lede">I'm a data analyst with 5+ years across analytics, AI and engineering. I work in SQL, Python and Power BI, and I'm doing an MBA in Business Analytics at BITS Pilani. Every project below starts with a business question and ends with what I'd tell the people who own it.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See the projects</a>
+      <a class="btn" href="assets/Ayush_Saxena_Resume.pdf">Resume (PDF)</a>
+      <a class="btn" href="https://github.com/Ayu779">GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>−28%</b><span>customer acquisition cost for a D2C brand, from cohort and RFM work</span></div>
+      <div class="stat"><b>1.6% → 2.7%</b><span>site conversion after A/B tests on the funnel</span></div>
+      <div class="stat"><b>12–15%</b><span>less stock imbalance from supply chain models at Tiger Analytics</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="section-intro">Built on public data so anyone can rerun them. Each one has the code, the reasoning behind every cleaning and modelling choice, and the limitations I'd flag to a stakeholder.</p>
+
+    <!-- PROJECT 1 -->
+    <article class="project">
+      <div>
+        <p class="eyebrow">Project 1 · SQL</p>
+        <h3>Where does an online retailer's revenue really come from?</h3>
+        <ul class="tags"><li>MySQL 8</li><li>Window functions</li><li>CTEs</li><li>Cohorts</li><li>RFM</li></ul>
+        <p class="q"><strong>Question:</strong> a UK online gift wholesaler has two years of transactions (1M rows). Is it growing, who is it depending on, and where should marketing spend its time?</p>
+        <p class="result">Revenue is flat (+2%) and rests on a shrinking base: <b>the top 10% of customers bring in 63%</b> and first-time customers fell <b>41% year on year</b>.</p>
+        <ul class="findings">
+          <li><b>349 high-value customers have gone quiet.</b> They spent £1.07M. Winning back one in five is worth about £100k a year.</li>
+          <li><b>44% of new customers reorder within 90 days</b>, and 24% never return, so the second order is the moment to act on.</li>
+          <li>Cleaning mattered: two cancelled 75,000-unit orders were entry errors that made random products look like best sellers.</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/Ayu779/retail-revenue-sql-analysis">Case study and SQL →</a>
+        </div>
+      </div>
+      <figure class="chart">
+        <img src="assets/rfm_segments.png" alt="Bar chart comparing each RFM segment's share of customers with its share of revenue. Champions are 25% of customers and about 70% of revenue." loading="lazy">
+        <figcaption>RFM segments scored in SQL with NTILE.</figcaption>
+      </figure>
+    </article>
+
+    <!-- PROJECT 2 -->
+    <article class="project">
+      <div>
+        <p class="eyebrow">Project 2 · Python</p>
+        <h3>Who should the bank call? Targeting a phone campaign</h3>
+        <ul class="tags"><li>pandas</li><li>scikit-learn</li><li>Logistic regression</li><li>Gains and lift</li></ul>
+        <p class="q"><strong>Question:</strong> a bank's campaign converted 11.7% of 45,211 calls. If it can only call part of its list, who goes first and what does it lose?</p>
+        <p class="result">Calling the top half of the list in model order keeps <b>79% of sign-ups</b> and cuts cost per sign-up from <b>EUR 43 to EUR 27</b>.</p>
+        <ul class="findings">
+          <li><b>Top 10% of scores convert at 42%</b>, 3.6 times the average, on a held-out test set (ROC AUC 0.747).</li>
+          <li><b>Customers called 5+ times</b> took 41% of all calls and gave 7% of sign-ups. I recommend a four-call cap, tested with an A/B split first.</li>
+          <li>I left out call duration because it's only known after the call. Most write-ups of this dataset include it and report inflated accuracy.</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/Ayu779/bank-campaign-targeting">Case study →</a>
+          <a href="https://github.com/Ayu779/bank-campaign-targeting/blob/main/campaign_targeting.ipynb">Notebook →</a>
+        </div>
+      </div>
+      <figure class="chart">
+        <img src="assets/gains_curve.png" alt="Cumulative gains curve. Calling the top 30% of the list by model score captures 62% of sign-ups, against 30% when calling at random." loading="lazy">
+        <figcaption>Cumulative gains on the held-out test set.</figcaption>
+      </figure>
+    </article>
+
+    <!-- PROJECT 3 -->
+    <article class="project">
+      <div>
+        <p class="eyebrow">Project 3 · Power BI</p>
+        <h3>A retail sales dashboard a manager can open every Monday</h3>
+        <ul class="tags"><li>Power BI</li><li>DAX</li><li>Star schema</li><li>Time intelligence</li><li>Drill-through</li></ul>
+        <p class="q"><strong>Question:</strong> the same retailer's manager needs one place to see revenue against last year, which customers are slipping, and which products get sent back.</p>
+        <ul class="findings">
+          <li>Star schema with one fact table (1M order lines) and date, customer and product dimensions.</li>
+          <li>Measures for year-on-year revenue, new vs returning customers, and cancellation rate.</li>
+          <li>Figures reconciled against the SQL results from Project 1.</li>
+        </ul>
+        <span class="status">Dashboard in progress</span>
+      </div>
+      <figure class="chart">
+        <img src="assets/monthly_revenue.png" alt="Line chart of monthly revenue in 2010 and 2011. Both years follow the same shape with a peak in November." loading="lazy">
+        <figcaption>Monthly revenue, 2010 vs 2011 (from Project 1).</figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>What I work with</h2>
+    <p class="section-intro">The tools matter less than the questions, but here's the kit.</p>
+    <div class="skills">
+      <div class="skill"><h4>SQL</h4><p>MySQL. CTEs, window functions, cohort and funnel queries, data cleaning, query tuning.</p></div>
+      <div class="skill"><h4>Python</h4><p>pandas, NumPy, scikit-learn, matplotlib. Analysis, automation and classification models.</p></div>
+      <div class="skill"><h4>Power BI and Excel</h4><p>DAX, Power Query, data modelling. Pivot tables, XLOOKUP and the odd heroic spreadsheet.</p></div>
+      <div class="skill"><h4>Methods</h4><p>A/B testing, cohort and RFM analysis, segmentation, regression, forecasting basics.</p></div>
+      <div class="skill"><h4>AI in analysis</h4><p>LLM evaluation since 2023. Using LLMs on customer reviews, and knowing when not to trust them.</p></div>
+      <div class="skill"><h4>Business</h4><p>MBA in Business Analytics: strategy, economics, predictive analytics, data governance.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="section-intro">Engineering first, then analytics at scale, then three years tied directly to revenue.</p>
+    <ul class="timeline">
+      <li>
+        <span class="when">May 2023 to present</span>
+        <div><h4>Senior Data Analyst <span class="org">· Digital Next Consultancy</span></h4>
+        <p>Marketing and e-commerce analytics for a D2C brand. Cohort and RFM work that cut acquisition cost by 28%, A/B tests that lifted conversion from 1.6% to 2.7%, repeat purchases up 22%, and LLMs to turn customer reviews into input for pricing and ad spend.</p></div>
+      </li>
+      <li>
+        <span class="when">Oct 2023 to Dec 2024</span>
+        <div><h4>AI Trainer, freelance <span class="org">· Outlier and Deccan AI</span></h4>
+        <p>Evaluated LLM outputs in off hours. Learned first-hand where models get things quietly wrong.</p></div>
+      </li>
+      <li>
+        <span class="when">Mar 2022 to Apr 2023</span>
+        <div><h4>Data Analyst <span class="org">· Tiger Analytics</span></h4>
+        <p>Supply chain analytics for Europe and North America. Models behind inventory decisions that cut stock imbalance by 12 to 15%.</p></div>
+      </li>
+      <li>
+        <span class="when">Aug 2021 to Mar 2022</span>
+        <div><h4>Programmer Analyst <span class="org">· Cognizant</span></h4>
+        <p>Automated a regression test suite in Python, taking a 40-minute run down to 90 seconds. It's what pulled me toward data.</p></div>
+      </li>
+      <li>
+        <span class="when">2025 to present</span>
+        <div><h4>MBA, Business Analytics <span class="org">· BITS Pilani (WILP)</span></h4>
+        <p>CGPA 8.88. BTech in Computer Science from JIIT Noida, 2021.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p class="section-intro">I'm open to remote data analyst, product analyst and BI roles, or hybrid in Indore. The fastest way to reach me is email.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:ayushsaxena7777@gmail.com">ayushsaxena7777@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/ayushsaxena77">LinkedIn</a>
+      <a class="btn" href="https://github.com/Ayu779">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Ayush Saxena. Project data from the UCI Machine Learning Repository (CC BY 4.0).</div>
+</footer>
+
+</body>
+</html>
